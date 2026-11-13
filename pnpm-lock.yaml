@@ -168,6 +168,9 @@ importers:
       '@repo/upload':
         specifier: workspace:*
         version: link:../../packages/upload
+      '@simplestack/store':
+        specifier: ^0.7.7
+        version: 0.7.7(react@19.2.7)
       '@tanstack/react-query':
         specifier: ^5.17.0
         version: 5.107.1(@types/react@19.3.0)(react@19.2.7)
@@ -996,6 +999,14 @@ packages:
   '@rolldown/pluginutils@1.1.1':
     resolution: {integrity: sha512-glFIJDvLNDtJhT9qrMFWLPbvS+skxgt4L0K8Ei2YtnhPysAJnsI7nyxSJxKj4ADeKX0OLjC4ntRkwpLOoS3rwA==}
 
+  '@simplestack/store@0.7.7':
+    resolution: {integrity: sha512-UwV04f6FAmvBPyuJlqvJTGMabK1lcg0Yd9K2DgJpZMwE7rBkZSgqlDHW3uFXN9MPZsQ5miP8b0g0m7YEMEfqvQ==}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
@@ -1693,6 +1704,9 @@ packages:
     resolution: {integrity: sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==}
     engines: {node: '>=6'}
 
+  esm-env@1.2.2:
+    resolution: {integrity: sha512-Epxrv+Nr/CaL4ZcFGPJIYLWFom+YeV1DqMLHJoEd9SYRxNbaFruBwfEX/kkHUJf55j2+TUbmDcmuilbP1TmXHA==}
+
   estree-walker@3.0.3:
     resolution: {integrity: sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g==}
 
@@ -2265,6 +2279,9 @@ packages:
 
   siginfo@2.0.0:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}
+
+  signal-polyfill@0.2.2:
+    resolution: {integrity: sha512-p63Y4Er5/eMQ9RHg0M0Y64NlsQKpiu6MDdhBXpyywRuWiPywhJTpKJ1iB5K2hJEbFZ0BnDS7ZkJ+0AfTuL37Rg==}
 
   sonner@1.7.4:
     resolution: {integrity: sha512-DIS8z4PfJRbIyfVFDVnK9rO3eYDtse4Omcm6bt0oEr5/jtLgysmjuBl1frJ9E/EQZrFmKx2A8m/s5s9CRXIzhw==}
@@ -3113,6 +3130,13 @@ snapshots:
 
   '@rolldown/pluginutils@1.1.1': {}
 
+  '@simplestack/store@0.7.7(react@19.2.7)':
+    dependencies:
+      esm-env: 1.2.2
+      signal-polyfill: 0.2.2
+    optionalDependencies:
+      react: 19.2.7
+
   '@standard-schema/spec@1.1.0': {}
 
   '@standard-schema/utils@0.3.0': {}
@@ -3778,6 +3802,8 @@ snapshots:
 
   escalade@3.2.0: {}
 
+  esm-env@1.2.2: {}
+
   estree-walker@3.0.3:
     dependencies:
       '@types/estree': 1.0.10
@@ -4382,6 +4408,8 @@ snapshots:
     optional: true
 
   siginfo@2.0.0: {}
+
+  signal-polyfill@0.2.2: {}
 
   sonner@1.7.4(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
