@@ -84,7 +84,7 @@ require (
 	go.opentelemetry.io/otel/trace v1.45.0
 	golang.org/x/crypto v0.58.0
 	// singleflight, which collapses concurrent cache misses in middleware/cache.go.
-	golang.org/x/sync v0.24.0
+	golang.org/x/sync v0.25.0
 	// Pulled in by the OTLP exporter even on the HTTP transport: the
 	// collector proto package depends on it. Pinned rather than left to
 	// whatever the otel modules ask for, which was v1.77.0 and carries two
