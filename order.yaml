@@ -1,0 +1,58 @@
+# order.yaml
+name: Order
+fields:
+  - name: number
+    type: string
+  - name: customer_name
+    type: string
+  - name: customer_email
+    type: string
+  - name: shipping_address
+    type: text
+  - name: subtotal
+    type: float
+  - name: shipping
+    type: float
+  - name: total
+    type: float
+  - name: payment_intent
+    type: string
+  - name: tracking_number
+    type: string
+  - name: status
+    type: select
+    options:
+      - value: pending
+        label: Pending payment
+      - value: paid
+        label: Paid
+      - value: packed
+        label: Packed
+      - value: shipped
+        label: Shipped
+      - value: delivered
+        label: Delivered
+      - value: cancelled
+        label: Cancelled
+    workflow:
+      initial: pending
+      terminal: [delivered, cancelled]
+      transitions:
+        - action: mark_paid
+          from: [pending]
+          to: paid
+        - action: pack
+          from: [paid]
+          to: packed
+          permission: orders.fulfil
+        - action: ship
+          from: [packed]
+          to: shipped
+          permission: orders.fulfil
+        - action: deliver
+          from: [shipped]
+          to: delivered
+        - action: cancel
+          from: [pending, paid, packed]
+          to: cancelled
+          confirm: true
